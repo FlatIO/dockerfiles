@@ -7,10 +7,10 @@ RUN echo 'deb http://http.debian.net/debian experimental main' > /etc/apt/source
   && apt-get install -y -t experimental firefox --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
 
-# Install node
+# Install node & git
 ENV NODE_VERSION 8.11.2
 RUN apt-get update \
-  && apt-get install -y wget ca-certificates xz-utils --no-install-recommends \
+  && apt-get install -y wget ca-certificates xz-utils git --no-install-recommends \
   && wget --no-verbose -O /tmp/node.tar.xz "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" \
   && tar -xJf /tmp/node.tar.xz -C /usr/local --strip-components=1 --no-same-owner \
   && apt-get purge -y xz-utils wget \
