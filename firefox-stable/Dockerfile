@@ -44,9 +44,9 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/* /tmp/node.tar.xz \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
-# Install python
+# Install python & build-essential
 RUN apt-get update \
-  && apt-get install python python-dev -y --no-install-recommends \
+  && apt-get install python python-dev build-essential -y --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
 
 RUN groupadd -g 999 user && \
