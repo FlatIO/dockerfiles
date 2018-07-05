@@ -4,7 +4,7 @@ LABEL maintainer "Vincent Giersch <vincent+docker@flat.io>"
 # Install Firefox
 RUN echo 'deb http://http.debian.net/debian experimental main' > /etc/apt/sources.list.d/firefox.list \
   && apt-get update \
-  && apt-get install -y -t experimental firefox --no-install-recommends \
+  && apt-get install -y -t experimental firefox \
   && rm -rf /var/lib/apt/lists/*
 
 # Install node / git / ssh
