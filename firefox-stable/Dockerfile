@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   curl \
   net-tools \
   wget \
+  ca-certificates \
   tar \
   bzip2 \
   libgtk-3-0 \
