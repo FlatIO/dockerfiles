@@ -64,3 +64,4 @@ user_pref("toolkit.telemetry.rejected", true);
 user_pref("webdriver_accept_untrusted_certs", true);
 user_pref("webdriver_assume_untrusted_issuer", true);
 user_pref("webdriver_enable_native_events", true);
+user_pref("media.autoplay.enabled.user-gestures-needed", false);
