@@ -2,7 +2,8 @@ FROM flat/ubuntu-dev:latest
 LABEL maintainer "Vincent Giersch <vincent+docker@flat.io>"
 
 # Install Chrome
-RUN apt-get update && apt-get install -y \
+RUN apt-get update \
+  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
   apt-transport-https \
   ca-certificates \
   curl \

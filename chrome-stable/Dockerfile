@@ -2,7 +2,8 @@ FROM flat/ubuntu-dev:latest
 LABEL maintainer "Vincent Giersch <vincent+docker@flat.io>"
 
 # Install Chrome
-RUN apt-get update && apt-get install -y \
+RUN apt-get update \
+  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
   apt-transport-https \
   ca-certificates \
   curl \
@@ -18,7 +19,8 @@ RUN apt-get update && apt-get install -y \
   --no-install-recommends \
   && curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
   && echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list \
-  && apt-get update && apt-get install -y \
+  && apt-get update \
+  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
   google-chrome-stable \
   --no-install-recommends \
   && apt-get purge --auto-remove -y curl \

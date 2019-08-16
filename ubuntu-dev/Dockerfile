@@ -3,7 +3,7 @@ LABEL maintainer "Vincent Giersch <vincent+docker@flat.io>"
 
 ENV NODE_VERSION 8.11.3
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends \
+  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     wget \
     curl \ 
     ca-certificates \
