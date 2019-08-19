@@ -30,7 +30,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libxcb-shm0 \
   && rm -rf /var/lib/apt/lists/*
 
-RUN wget -O firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US" && \
+RUN wget -O firefox.tar.bz2 "https://download-installer.cdn.mozilla.net/pub/firefox/releases/66.0.5/linux-x86_64/en-US/firefox-66.0.5.tar.bz2" && \
   tar -xvjf firefox* && mv firefox /usr/lib/firefox && ln -s /usr/lib/firefox/firefox /usr/bin/firefox && \
   rm firefox.tar.bz2
 
