@@ -30,17 +30,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libxcb-shm0 \
   && rm -rf /var/lib/apt/lists/*
 
-RUN wget -O firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-beta-latest&os=linux64&lang=en-US" && \
+RUN wget -O firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US" && \
   tar -xvjf firefox* && mv firefox /usr/lib/firefox && ln -s /usr/lib/firefox/firefox /usr/bin/firefox && \
   rm firefox.tar.bz2
 
 # Running user
-RUN useradd -d /home/user -m user &&mkdir /profile && chown user: /profile
+RUN useradd -d /home/user -m user && mkdir -p /home/user/.mozilla/firefox && mkdir /home/user/profile
+COPY profiles.ini /home/user/.mozilla/firefox
+COPY user.js /home/user/profile
+RUN chown -R user:user /home/user
 USER user
 ENV HOME /home/user
 WORKDIR /home/user
-
-# Minimal profile
-RUN mkdir -p /home/user/.mozilla/firefox
-COPY profiles.ini /home/user/.mozilla/firefox/
-COPY user.js /profile/
