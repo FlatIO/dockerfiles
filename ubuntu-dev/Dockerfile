@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 LABEL maintainer "Vincent Giersch <vincent+docker@flat.io>"
 
-ENV NODE_VERSION 8.11.3
+ENV NODE_VERSION 12.16.1
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     wget \
