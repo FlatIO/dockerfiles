@@ -1,3 +1,3 @@
-FROM cypress/base:12.14.0
+FROM cypress/base:12.16.1
 LABEL maintainer "Vincent Giersch <vincent+docker@flat.io>"
-RUN npm i -g cypress@4.0.1 cypress-plugin-snapshots cypress-plugin-tab cypress-file-upload
+RUN npm i -g cypress@4.2.0 cypress-plugin-snapshots cypress-plugin-tab cypress-file-upload
