@@ -1,4 +1,4 @@
-FROM node:12-buster
+FROM node:12
 LABEL maintainer "Vincent Giersch <vincent+docker@flat.io>"
 
 # NOTE(vince): bower will be removed in a near future
