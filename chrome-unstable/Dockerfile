@@ -1,5 +1,5 @@
 FROM flat/ubuntu-dev:latest
-LABEL maintainer "Vincent Giersch <vincent+docker@flat.io>"
+LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
 # Install Chrome
 RUN apt-get update \

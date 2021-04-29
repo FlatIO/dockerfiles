@@ -1,3 +1,3 @@
 FROM cypress/base:12
-LABEL maintainer "Vincent Giersch <vincent+docker@flat.io>"
+LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 RUN npm i -g cypress@7.0.0 cypress-plugin-snapshots@1.4.4 cypress-plugin-tab cypress-file-upload@3.5.3 date-fns

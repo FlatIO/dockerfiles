@@ -1,5 +1,5 @@
 FROM node:14
-LABEL maintainer "Vincent Giersch <vincent+docker@flat.io>"
+LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
 # NOTE(vince): bower will be removed in a near future
 RUN apt-get update && apt-get upgrade -y && apt-get install -y jq s3cmd && rm -rf /var/lib/apt/lists/* \
