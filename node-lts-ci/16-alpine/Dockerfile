@@ -8,4 +8,3 @@ RUN apk add --update-cache curl bash git openssh jq py3-pip make g++ && rm -rf /
   && npm install -g npm-check-updates bower grunt-cli semantic-release @semantic-release/git @semantic-release/changelog \
   && curl -sL https://sentry.io/get-cli/ | bash \
   && yarn policies set-version 1.19.2
-de:16-alpine3.13
