@@ -1,8 +1,5 @@
 FROM alpine:3.13
 
-# https://github.com/nodejs/node/releases
-ENV NODE_VERSION 16.4.1
-
 RUN addgroup -g 1000 node \
   && adduser -u 1000 -G node -s /bin/sh -D node \
   && apk add --no-cache \
@@ -34,6 +31,8 @@ RUN addgroup -g 1000 node \
     gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys "$key" || \
     gpg --batch --keyserver keyserver.ubuntu.com --recv-keys "$key" ; \
   done \
+  && export NODE_VERSION=$(curl -sL https://nodejs.org/dist/latest-v16.x | sed -nE 's|.*>node-v(.*)\.pkg</a>.*|\1|p') \
+  && echo "Building node ${NODE_VERSION}" \
   && curl -fsSLO --compressed "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.xz" \
   && curl -fsSLO --compressed "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
   && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \
