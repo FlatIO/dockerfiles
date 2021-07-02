@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
-ENV NODE_VERSION 14.16.1
+ENV NODE_VERSION 16.4.1
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     wget \
