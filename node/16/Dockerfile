@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM alpine:3.13
 
 # https://github.com/nodejs/node/releases
 ENV NODE_VERSION 16.4.1
