@@ -1,4 +1,5 @@
 FROM alpine:3.13
+LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
 RUN addgroup -g 1000 node \
   && adduser -u 1000 -G node -s /bin/sh -D node \
