@@ -50,6 +50,7 @@ RUN groupadd --gid 1000 node \
   && ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz \
   && apt-get purge -y gpg curl \
+  && apt-get autoremove --yes \
   && rm -rf /var/lib/apt/lists/* \
   # smoke tests
   && node --version \
