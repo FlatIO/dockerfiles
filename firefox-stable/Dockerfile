@@ -2,7 +2,8 @@ FROM flat/ubuntu-dev:latest
 LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
 # Install Firefox
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN export DEBIAN_FRONTEND=noninteractive \
+  && apt-get update && apt-get install -y --no-install-recommends \
   curl \
   net-tools \
   wget \
