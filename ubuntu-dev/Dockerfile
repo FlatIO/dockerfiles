@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM flat/ubuntu:latest
 LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
 ENV NODE_VERSION 16.4.1
