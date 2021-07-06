@@ -1,4 +1,4 @@
-FROM node:16-ubuntu
+FROM flat/node:16-ubuntu
 LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
 # NOTE(vince): bower will be removed in a near future
