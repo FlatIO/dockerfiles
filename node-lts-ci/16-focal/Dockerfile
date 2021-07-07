@@ -2,7 +2,8 @@ FROM flat/node:16-focal
 LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
 # NOTE(vince): bower will be removed in a near future
-RUN apt-get update \
+RUN export DEBIAN_FRONTEND=noninteractive \
+  && apt-get update \
   && apt-get upgrade -y \
   && apt-get install -y jq s3cmd python3-pip make g++ curl bash git \
   && rm -rf /var/lib/apt/lists/* \
