@@ -1,4 +1,4 @@
-FROM verdaccio/verdaccio:5.1
+FROM verdaccio/verdaccio:5
 USER root
 ENV NODE_ENV=production
 RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing s3cmd
