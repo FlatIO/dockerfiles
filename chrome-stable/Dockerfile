@@ -25,7 +25,3 @@ RUN apt-get update \
   --no-install-recommends \
   && apt-get purge --auto-remove -y curl \
   && rm -rf /var/lib/apt/lists/*
-
-RUN groupadd -g 999 user && \
-    useradd -m -d /home/user -r -u 999 -g user user
-USER user
