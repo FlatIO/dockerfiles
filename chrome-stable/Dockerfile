@@ -16,6 +16,13 @@ RUN apt-get update \
   libpulse0 \
   libv4l-0 \
   fonts-symbola \
+  fonts-liberation \
+  libappindicator3-1 \
+  libnspr4 \
+  libnss3 \
+  libxss1 \
+  lsb-release \
+  xdg-utils \
   --no-install-recommends \
   && curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
   && echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list \
