@@ -1,4 +1,4 @@
-FROM flat/node:16-focal
+FROM flat/ubuntu-dev:latest
 LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
 # Install Chrome
