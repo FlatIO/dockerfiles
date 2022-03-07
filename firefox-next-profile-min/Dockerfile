@@ -27,7 +27,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libxt6 \
   libxcb1 \
   libxcb-shm0 \
-  libasound2-dev \apt/lists/*
+  libasound2-dev \
+  && rm -rf /var/lib/apt/lists/*
 
 RUN wget -q -O - "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US" | tar -xj -C /usr/lib \
   && ln -s /usr/lib/firefox/firefox /usr/bin/firefox
