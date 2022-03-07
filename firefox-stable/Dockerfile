@@ -6,7 +6,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update && apt-get install -y --no-install-recommends \
   net-tools \
   tar \
-  bzip2 \
   libgtk-3-0 \
   libdbus-1-3 \
   libdbus-glib-1-2 \

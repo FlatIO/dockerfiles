@@ -8,7 +8,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   wget \
   ca-certificates \
   tar \
-  bzip2 \
   libgtk-3-0 \
   libdbus-1-3 \
   libdbus-glib-1-2 \
@@ -28,11 +27,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libxt6 \
   libxcb1 \
   libxcb-shm0 \
-  && rm -rf /var/lib/apt/lists/*
+  libasound2-dev \apt/lists/*
 
-RUN wget -O firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=en-US" && \
-  tar -xvjf firefox* && mv firefox /usr/lib/firefox && ln -s /usr/lib/firefox/firefox /usr/bin/firefox && \
-  rm firefox.tar.bz2
+RUN wget -q -O - "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US" | tar -xj -C /usr/lib \
+  && ln -s /usr/lib/firefox/firefox /usr/bin/firefox
 
 # Running user
 RUN useradd -d /home/user -m user
