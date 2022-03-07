@@ -26,6 +26,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   libxt6 \
   libxcb1 \
   libxcb-shm0 \
+  libasound2-dev \
   && rm -rf /var/lib/apt/lists/*
 
 RUN wget -q -O - "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US" | tar -xj -C /usr/lib \
