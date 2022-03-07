@@ -12,4 +12,5 @@ RUN apt-get update \
     ssh \
     python \
     python-dev \
-    build-essential
+    build-essential \
+  && rm -rf /var/lib/apt/lists/*
