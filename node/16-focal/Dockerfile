@@ -2,7 +2,7 @@ FROM flat/ubuntu:20.04
 LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
 # https://classic.yarnpkg.com/en/
-ENV YARN_VERSION 1.22.5
+ENV YARN_VERSION 1.22.18
 
 RUN groupadd --gid 1000 node \
   && useradd --uid 1000 --gid node --shell /bin/bash --create-home node \
