@@ -1,4 +1,4 @@
-FROM node:16-alpine3.13
+FROM node:16-alpine
 LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
 # NOTE(vince): bower will be removed in a near future

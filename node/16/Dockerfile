@@ -1,4 +1,4 @@
-FROM alpine:3.13
+FROM alpine:3.15
 LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
 RUN addgroup -g 1000 node \
