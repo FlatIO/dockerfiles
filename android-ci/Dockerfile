@@ -15,7 +15,7 @@ ENV PATH="${PATH}:/android-sdk-linux/platform-tools/"
 
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
-    openjdk-11-jdk libc6 libstdc++6 libgcc1 libncurses5 libz1 net-tools wget unzip \
+    openjdk-11-jdk libc6 libstdc++6 libgcc1 libncurses5 libz1 net-tools wget unzip git \
     ruby ruby-dev gcc g++ libffi-dev make \
   && rm -rf /var/lib/apt/lists/* \
   && update-alternatives --set javac /usr/lib/jvm/java-11-openjdk-amd64/bin/javac \
