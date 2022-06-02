@@ -9,7 +9,7 @@ RUN apt-get update \
     xz-utils \
     git \
     ssh \
-    python \
-    python-dev \
+    python3 \
+    python3-dev \
     build-essential \
   && rm -rf /var/lib/apt/lists/*
