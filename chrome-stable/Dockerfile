@@ -1,4 +1,4 @@
-FROM flat/ubuntu-dev:latest
+FROM flat/ubuntu-dev:16-jammy
 LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
 # Install Chrome
