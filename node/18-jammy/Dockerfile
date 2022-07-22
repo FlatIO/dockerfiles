@@ -53,7 +53,10 @@ RUN groupadd --gid 1000 node \
   && apt-get purge -y gpg curl \
   && apt-get autoremove --yes \
   && rm -rf /var/lib/apt/lists/* \
+  # pnpm
+  && npm install -g pnpm \
   # smoke tests
   && node --version \
   && npm --version \
-  && yarn --version
+  && yarn --version \
+  && pnpm --version
