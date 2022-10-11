@@ -8,6 +8,8 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get install -y jq libpng-dev libjpeg-dev s3cmd python3-pip make g++ curl bash git \
   && rm -rf /var/lib/apt/lists/* \
   && npm install -g \
+    npm@latest \
+    node-gyp@latest \
     npm-check-updates \
     audit-ci \
     bower \
