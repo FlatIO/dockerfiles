@@ -76,4 +76,4 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   # smoke test
   && yarn --version
 
-RUN npm install -g pnpm && pnpm --version
+RUN npm install -g pnpm@7.14.2 && pnpm --version
