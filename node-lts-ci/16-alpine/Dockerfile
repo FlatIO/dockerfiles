@@ -6,6 +6,7 @@ RUN apk add --update-cache curl bash git openssh jq py3-pip make g++ git && rm -
   && ln -s /usr/bin/python3 /usr/bin/python \
   && pip3 install s3cmd \
   && npm install -g \
+    npm@8 \
     npm-check-updates \
     audit-ci \
     bower \
