@@ -1,4 +1,4 @@
-FROM flat/node:16-jammy
+FROM flat/node:18-jammy
 LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
 RUN apt-get update \

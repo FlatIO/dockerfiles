@@ -1,4 +1,4 @@
-FROM flat/node:16-focal
+FROM flat/node:18-focal
 LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
 RUN apt-get update \
