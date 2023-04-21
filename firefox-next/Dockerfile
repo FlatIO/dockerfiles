@@ -30,7 +30,3 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 
 RUN wget -q -O - "https://download.mozilla.org/?product=firefox-beta-latest&os=linux64&lang=en-US" | tar -xj -C /usr/lib \
   && ln -s /usr/lib/firefox/firefox /usr/bin/firefox
-
-RUN groupadd -g 999 user && \
-    useradd -m -d /home/user -r -u 999 -g user user
-USER user
