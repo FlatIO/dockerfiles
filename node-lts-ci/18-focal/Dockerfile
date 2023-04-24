@@ -18,6 +18,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     @semantic-release/commit-analyzer \
     @semantic-release/release-notes-generator \
     @semantic-release/npm@9.0.2 \
+    @semantic-release/exec \
     @semantic-release/git \
     @semantic-release/changelog \
     semantic-release-monorepo \
