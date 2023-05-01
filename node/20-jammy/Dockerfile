@@ -9,6 +9,7 @@ RUN groupadd --gid 1000 node \
   && export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
   && apt-get install gpg curl -y \
+  && rm -rf /var/lib/apt/lists/* \
   # gpg keys listed at https://github.com/nodejs/node#release-keys
   && for key in \
     4ED778F539E3634C779C87C6D7062848A1AB005C \
