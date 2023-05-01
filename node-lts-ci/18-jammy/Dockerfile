@@ -15,7 +15,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     grunt-cli \
     semantic-release \
     @semantic-release/commit-analyzer \
-    @semantic-release/release-notes-generator \
+    @semantic-release/release-notes-generator@10.0.3 \
     @semantic-release/npm@9.0.2 \
     @semantic-release/exec \
     @semantic-release/git \
