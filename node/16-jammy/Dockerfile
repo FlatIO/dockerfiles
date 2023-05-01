@@ -56,7 +56,7 @@ RUN groupadd --gid 1000 node \
   && apt-get autoremove --yes \
   && rm -rf /var/lib/apt/lists/* \
   # pnpm
-  && npm install -g pnpm@latest npm@8 \
+  && npm install -g pnpm@latest npm@latest \
   # smoke tests
   && node --version \
   && npm --version \
