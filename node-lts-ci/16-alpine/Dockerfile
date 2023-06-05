@@ -11,7 +11,7 @@ RUN apk add --update-cache curl bash git openssh jq py3-pip make g++ git && rm -
     bower \
     grunt-cli \
     semantic-release \
-    @semantic-release/commit-analyzer \
+    @semantic-release/commit-analyzer@9.0.2 \
     @semantic-release/release-notes-generator \
     @semantic-release/npm@9.0.2 \
     @semantic-release/exec \
