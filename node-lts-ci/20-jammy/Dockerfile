@@ -23,4 +23,5 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     @semantic-release/exec \
     @semantic-release/git \
     @semantic-release/changelog \
-    semantic-release-monorepo 
+    semantic-release-monorepo \
+    wrangler

@@ -22,4 +22,5 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     @semantic-release/git \
     @semantic-release/changelog \
     semantic-release-monorepo \
+    wrangler \
   && curl -sL https://sentry.io/get-cli/ | bash
