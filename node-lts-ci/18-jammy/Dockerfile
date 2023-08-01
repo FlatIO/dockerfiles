@@ -24,4 +24,5 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     @semantic-release/git \
     @semantic-release/changelog \
     semantic-release-monorepo \
-    wrangler
+    wrangler \
+    ibm-openapi-validator
