@@ -4,7 +4,7 @@ LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
   && apt-get upgrade -y \
-  && apt-get install -y jq libpng-dev libjpeg-dev s3cmd python3-pip make g++ curl bash git \
+  && apt-get install -y jq libpng-dev libjpeg-dev s3cmd python3-pip make g++ curl bash git zip \
   && rm -rf /var/lib/apt/lists/* \
   && curl -sL https://sentry.io/get-cli/ | bash \
   && curl -L "https://dl.k8s.io/release/$(curl -sL https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" -o /usr/local/bin/kubectl \

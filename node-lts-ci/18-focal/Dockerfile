@@ -5,7 +5,7 @@ LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
   && apt-get upgrade -y \
-  && apt-get install -y jq libpng-dev libjpeg-dev s3cmd python3-pip make g++ curl bash git \
+  && apt-get install -y jq libpng-dev libjpeg-dev s3cmd python3-pip make g++ curl bash git zip \
   && rm -rf /var/lib/apt/lists/* \
   && npm install -g \
     npm@8 \
