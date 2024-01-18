@@ -23,7 +23,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     @semantic-release/exec \
     @semantic-release/git \
     @semantic-release/changelog \
-    semantic-release-monorepo \
+    semantic-release-monorepo@7.0.8 \
     wrangler \
     ibm-openapi-validator \
     @socketsecurity/cli
