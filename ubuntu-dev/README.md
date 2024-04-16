@@ -1,1 +1,1 @@
-Ubuntu 22.04 image with Node 16.x (LTS) and Python 3
+Ubuntu 22.04 image with Node 20.x (LTS) and Python 3
