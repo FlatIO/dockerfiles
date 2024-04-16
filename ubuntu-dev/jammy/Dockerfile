@@ -1,4 +1,4 @@
-FROM flat/node:18-jammy
+FROM flat/node:20-jammy
 LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
 RUN apt-get update \
@@ -12,4 +12,5 @@ RUN apt-get update \
     python3 \
     python3-dev \
     build-essential \
+    jq \
   && rm -rf /var/lib/apt/lists/*
