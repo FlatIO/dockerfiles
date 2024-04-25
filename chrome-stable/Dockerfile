@@ -1,7 +1,6 @@
 FROM flat/ubuntu-dev:jammy
 LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
-# Install Chrome
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y \
   apt-transport-https \
