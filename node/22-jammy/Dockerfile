@@ -34,6 +34,7 @@ RUN groupadd --gid 1000 node \
     141F07595B7B3FFE74309A937405533BE57C7D57 \
     DD792F5973C6DE52C432CBDAC77ABFA00DDBF2B7 \
     A363A499291CBBC940DD62E41F10027AF002F8B0 \
+    CC68F5A3106FF448322E48ED27F5E38D5B0A215F \
   ; do \
     gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys "$key" || \
     gpg --batch --keyserver keyserver.ubuntu.com --recv-keys "$key" ; \
