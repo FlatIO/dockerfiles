@@ -1,7 +1,9 @@
 FROM flat/ubuntu:24.04
 LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
-RUN groupadd --gid 1000 node \
+RUN userdel ubuntu \
+  && rm -rf /home/ubuntu \
+  && groupadd --gid 1000 node \
   && useradd --uid 1000 --gid node --shell /bin/bash --create-home node \
   && export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
