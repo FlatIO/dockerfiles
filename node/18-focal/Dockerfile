@@ -51,7 +51,7 @@ RUN groupadd --gid 1000 node \
   && rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc SHASUMS256.txt \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs \
   # npm/pnpm/yarn
-  && npm install -g pnpm@latest npm@latest yarn@$YARN_VERSION \
+  && npm install -g pnpm@9.4.0 npm@latest yarn@$YARN_VERSION \
   # smoke tests
   && node --version \
   && npm --version \
