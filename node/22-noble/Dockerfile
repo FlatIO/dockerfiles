@@ -1,4 +1,4 @@
-FROM flat/ubuntu:22.04
+FROM flat/ubuntu:24.04
 LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
 RUN groupadd --gid 1000 node \
