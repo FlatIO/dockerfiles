@@ -37,6 +37,7 @@ RUN userdel ubuntu \
     DD792F5973C6DE52C432CBDAC77ABFA00DDBF2B7 \
     A363A499291CBBC940DD62E41F10027AF002F8B0 \
     CC68F5A3106FF448322E48ED27F5E38D5B0A215F \
+    C0D6248439F1D5604AAFFB4021D900FFDB233756 \
   ; do \
     gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys "$key" || \
     gpg --batch --keyserver keyserver.ubuntu.com --recv-keys "$key" ; \
