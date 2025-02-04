@@ -1,13 +1,40 @@
 FROM flat/node:22-noble
 LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
+ENV GLAB_VERSION=1.52.0
+
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
   && apt-get upgrade -y \
-  && apt-get install -y jq libpng-dev libjpeg-dev s3cmd python3-pip make g++ curl bash git zip \
+  # Build deps
+  && apt-get install -y \
+    jq \
+    libpng-dev \
+    libpixman-1-dev\
+    libcairo2-dev \
+    libjpeg-dev \
+    libpango1.0-dev \
+    libgif-dev \
+    s3cmd \
+    python3-pip \
+    make \
+    g++ \
+    curl \
+    bash \
+    git \
+    zip \
+    pkg-config \
   && rm -rf /var/lib/apt/lists/* \
+  # Sentry
   && curl -sL https://sentry.io/get-cli/ | bash \
+  # Bun
   && curl -fsSL https://bun.sh/install | bash \
+  # Gitlab CLI
+  && mkdir /tmp/glab \
+  && curl -L https://gitlab.com/gitlab-org/cli/-/releases/v${GLAB_VERSION}/downloads/glab_${GLAB_VERSION}_linux_arm64.tar.gz | tar xvzf - -C /tmp/glab \
+  && mv /tmp/glab/bin/glab /usr/local/bin/glab \
+  && rm -rf /tmp/glab \
+  # Kubectl
   && curl -L "https://dl.k8s.io/release/$(curl -sL https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" -o /usr/local/bin/kubectl \
   && chmod 755 /usr/local/bin/kubectl \
   && npm install -g \
