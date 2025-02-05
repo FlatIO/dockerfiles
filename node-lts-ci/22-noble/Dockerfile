@@ -30,10 +30,9 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   # Bun
   && curl -fsSL https://bun.sh/install | bash \
   # Gitlab CLI
-  && mkdir /tmp/glab \
-  && curl -L https://gitlab.com/gitlab-org/cli/-/releases/v${GLAB_VERSION}/downloads/glab_${GLAB_VERSION}_linux_arm64.tar.gz | tar xvzf - -C /tmp/glab \
-  && mv /tmp/glab/bin/glab /usr/local/bin/glab \
-  && rm -rf /tmp/glab \
+  && curl -L https://gitlab.com/gitlab-org/cli/-/releases/v${GLAB_VERSION}/downloads/glab_${GLAB_VERSION}_linux_amd64.deb -o /tmp/glab.deb \
+  && dpkg -i /tmp/glab.deb \
+  && rm /tmp/glab.deb \
   # Kubectl
   && curl -L "https://dl.k8s.io/release/$(curl -sL https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" -o /usr/local/bin/kubectl \
   && chmod 755 /usr/local/bin/kubectl \
