@@ -24,7 +24,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     git \
     zip \
     pkg-config \
-  && rm -rf /var/lib/apt/lists/* \
   # Sentry
   && curl -sL https://sentry.io/get-cli/ | bash \
   # Bun
@@ -36,6 +35,12 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   # Kubectl
   && curl -L "https://dl.k8s.io/release/$(curl -sL https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" -o /usr/local/bin/kubectl \
   && chmod 755 /usr/local/bin/kubectl \
+  # Google Cloud CLI
+  && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg \
+  && echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list \
+  && apt-get update \
+  && apt-get install -y google-cloud-cli \
+  # NPM Deps
   && npm install -g \
     npm@latest \
     node-gyp@latest \
@@ -53,4 +58,14 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     semantic-release-monorepo@7.0.8 \
     wrangler \
     ibm-openapi-validator \
-    @socketsecurity/cli
+    @socketsecurity/cli \
+  # Cleanup layer
+  && rm -rf /var/lib/apt/lists/* \
+  # Smoke test
+  && npm --version \
+  && node --version \
+  && git --version \
+  && glab --version \
+  && kubectl version --client \
+  && gcloud --version
+  
