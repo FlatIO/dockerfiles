@@ -2,6 +2,7 @@ FROM flat/node:22-noble
 LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
 
 ENV GLAB_VERSION=1.52.0
+ENV MONGOSH_VERSION=2.4.2
 
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
@@ -28,6 +29,10 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && curl -sL https://sentry.io/get-cli/ | bash \
   # Bun
   && curl -fsSL https://bun.sh/install | bash \
+  # MongoSH
+  && curl -fsSL https://downloads.mongodb.com/compass/mongodb-mongosh_${MONGOSH_VERSION}_amd64.deb -o /tmp/mongosh.deb \
+  && dpkg -i /tmp/mongosh.deb \
+  && rm /tmp/mongosh.deb \
   # Gitlab CLI
   && curl -L https://gitlab.com/gitlab-org/cli/-/releases/v${GLAB_VERSION}/downloads/glab_${GLAB_VERSION}_linux_amd64.deb -o /tmp/glab.deb \
   && dpkg -i /tmp/glab.deb \
@@ -67,5 +72,5 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && git --version \
   && glab --version \
   && kubectl version --client \
-  && gcloud --version
-  
+  && gcloud --version \
+  && mongosh --version
