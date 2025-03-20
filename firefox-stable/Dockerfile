@@ -29,5 +29,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /usr/lib/firefox \
-  && curl -sSL "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US" | tar -xJf - -C /usr/lib/firefox \
-  && ln -s /usr/lib/firefox/firefox /usr/bin/firefox
+  && curl -sSL "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US" | tar -xJf - -C /usr/lib \
+  && ln -s /usr/lib/firefox/firefox /usr/bin/firefox \
+  && firefox --version
