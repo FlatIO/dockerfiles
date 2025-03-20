@@ -1,4 +1,4 @@
-FROM flat/ubuntu-dev:jammy
+FROM flat/ubuntu-dev:noble
 LABEL maintainer="Vincent Giersch <vincent+docker@tutteo.com>"
 
 # Install Firefox
