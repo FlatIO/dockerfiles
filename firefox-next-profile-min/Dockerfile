@@ -1,5 +1,5 @@
 FROM flat/ubuntu:latest
-LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
+LABEL maintainer="Vincent Giersch <vincent+docker@tutteo.com>"
 
 # Install Firefox
 RUN apt-get update && apt-get install -y --no-install-recommends \

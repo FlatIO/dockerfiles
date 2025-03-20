@@ -1,5 +1,5 @@
 FROM flat/ubuntu:22.04
-LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
+LABEL maintainer="Vincent Giersch <vincent+docker@tutteo.com>"
 
 # https://classic.yarnpkg.com/en/
 ENV YARN_VERSION 1.22.19

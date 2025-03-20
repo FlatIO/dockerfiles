@@ -1,5 +1,5 @@
 FROM flat/node:18-jammy
-LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
+LABEL maintainer="Vincent Giersch <vincent+docker@tutteo.com>"
 
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \

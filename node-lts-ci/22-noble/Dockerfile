@@ -1,5 +1,5 @@
 FROM flat/node:22-noble
-LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
+LABEL maintainer="Vincent Giersch <vincent+docker@tutteo.com>"
 
 ENV GLAB_VERSION=1.53.0
 ENV MONGOSH_VERSION=2.4.2

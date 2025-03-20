@@ -1,5 +1,5 @@
 FROM flat/ubuntu:24.04
-LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
+LABEL maintainer="Vincent Giersch <vincent+docker@tutteo.com>"
 
 RUN userdel ubuntu \
   && rm -rf /home/ubuntu \

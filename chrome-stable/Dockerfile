@@ -1,5 +1,5 @@
 FROM flat/ubuntu-dev:jammy
-LABEL maintainer "Vincent Giersch <vincent+docker@tutteo.com>"
+LABEL maintainer="Vincent Giersch <vincent+docker@tutteo.com>"
 
 RUN apt-get update \
   && curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
