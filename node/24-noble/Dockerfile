@@ -17,7 +17,7 @@ RUN userdel ubuntu \
     gpg --batch --keyserver keyserver.ubuntu.com --recv-keys "$key" ; \
   done < /tmp/node-keys.list \
   && rm /tmp/node-keys.list \
-  && export NODE_VERSION=$(curl -sL https://nodejs.org/dist/latest-v23.x | sed -nE 's|.*>node-v(.*)\.pkg</a>.*|\1|p') \
+  && export NODE_VERSION=$(curl -sL https://nodejs.org/dist/latest-v24.x | sed -nE 's|.*>node-v(.*)\.pkg</a>.*|\1|p') \
   && curl -fsSLO --compressed "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
   && curl -fsSLO --compressed "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
   && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \
