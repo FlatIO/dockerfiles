@@ -10,9 +10,9 @@ RUN \
   && chmod 644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg \
   && echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.33/deb/ /' | tee /etc/apt/sources.list.d/kubernetes.list \
   && chmod 644 /etc/apt/sources.list.d/kubernetes.list \
-  # Install kubectl
+  # Install kubectl and envsubst
   && apt-get update \
-  && apt-get install -y kubectl \
+  && apt-get install -y kubectl gettext-base \
   # Cleanup
   && apt-get purge -y apt-transport-https ca-certificates curl gnupg \
   && apt-get autoremove -y \
