@@ -7,7 +7,7 @@ RUN userdel ubuntu \
   && useradd --uid 1000 --gid node --shell /bin/bash --create-home node \
   && export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
-  && apt-get install gpg curl -y \
+  && apt-get install gpg curl libatomic1 -y \
   && rm -rf /var/lib/apt/lists/* \
   # Import all Node.js release keys from https://github.com/nodejs/release-keys
   && curl -fsSL https://raw.githubusercontent.com/nodejs/release-keys/refs/heads/main/keys.list -o /tmp/node-keys.list \
