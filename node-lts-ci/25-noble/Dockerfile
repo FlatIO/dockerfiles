@@ -1,4 +1,4 @@
-FROM flat/node:22-noble
+FROM flat/node:25-noble
 LABEL maintainer="Vincent Giersch <vincent+docker@tutteo.com>"
 
 ENV GLAB_VERSION=1.74.0
