@@ -17,6 +17,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     libpango1.0-dev \
     libgif-dev \
     libgl1 \
+    libxi6 \
     s3cmd \
     python3-pip \
     make \
