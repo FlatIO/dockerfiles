@@ -3,6 +3,7 @@ LABEL maintainer="Vincent Giersch <vincent+docker@tutteo.com>"
 
 ENV GLAB_VERSION=1.74.0
 ENV MONGOSH_VERSION=2.5.8
+ENV PATH="/root/.local/bin:${PATH}"
 
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
@@ -66,6 +67,8 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     wrangler \
     ibm-openapi-validator \
     @socketsecurity/cli \
+  # Claude Code CLI
+  && curl -fsSL https://claude.ai/install.sh | bash \
   # Cleanup layer
   && rm -rf /var/lib/apt/lists/* \
   # Smoke test
@@ -75,4 +78,5 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && glab --version \
   && kubectl version --client \
   && gcloud --version \
-  && mongosh --version
+  && mongosh --version \
+  && claude --version
