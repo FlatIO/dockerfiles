@@ -67,8 +67,8 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     wrangler \
     ibm-openapi-validator \
     @socketsecurity/cli \
-  # Claude Code CLI
-  && curl -fsSL https://claude.ai/install.sh | bash \
+  # uv (Python package manager)
+  && curl -LsSf https://astral.sh/uv/install.sh | sh \
   # Cleanup layer
   && rm -rf /var/lib/apt/lists/* \
   # Smoke test
@@ -79,4 +79,4 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && kubectl version --client \
   && gcloud --version \
   && mongosh --version \
-  && claude --version
+  && uv --version
