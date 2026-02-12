@@ -4,7 +4,7 @@ LABEL maintainer="Vincent Giersch <vincent+docker@tutteo.com>"
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
   && apt-get upgrade -y \
-  && apt-get install -y jq libpng-dev libjpeg-dev libgl1 libxi6 s3cmd python3-pip make g++ curl bash git zip \
+  && apt-get install -y jq libpng-dev libjpeg-dev libgl1 libxi6 s3cmd awscli python3-pip make g++ curl bash git zip \
   && rm -rf /var/lib/apt/lists/* \
   && curl -sL https://sentry.io/get-cli/ | bash \
   && curl -fsSL https://bun.sh/install | bash \

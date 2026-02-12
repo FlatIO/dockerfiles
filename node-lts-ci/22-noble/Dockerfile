@@ -20,6 +20,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     libgl1 \
     libxi6 \
     s3cmd \
+    awscli \
     python3-pip \
     make \
     g++ \
@@ -79,4 +80,5 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && kubectl version --client \
   && gcloud --version \
   && mongosh --version \
+  && aws --version \
   && claude --version
