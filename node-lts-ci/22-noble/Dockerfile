@@ -20,7 +20,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     libgl1 \
     libxi6 \
     s3cmd \
-    awscli \
+    unzip \
     python3-pip \
     make \
     g++ \
@@ -68,6 +68,11 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     wrangler \
     ibm-openapi-validator \
     @socketsecurity/cli \
+  # AWS CLI v2
+  && curl -fsSL "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o /tmp/awscliv2.zip \
+  && unzip -q /tmp/awscliv2.zip -d /tmp \
+  && /tmp/aws/install \
+  && rm -rf /tmp/awscliv2.zip /tmp/aws \
   # Claude Code CLI
   && curl -fsSL https://claude.ai/install.sh | bash \
   # Cleanup layer

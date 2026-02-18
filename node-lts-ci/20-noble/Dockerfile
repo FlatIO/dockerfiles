@@ -4,12 +4,16 @@ LABEL maintainer="Vincent Giersch <vincent+docker@tutteo.com>"
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
   && apt-get upgrade -y \
-  && apt-get install -y jq libpng-dev libjpeg-dev libgl1 libxi6 s3cmd awscli python3-pip make g++ curl bash git zip \
+  && apt-get install -y jq libpng-dev libjpeg-dev libgl1 libxi6 s3cmd unzip python3-pip make g++ curl bash git zip \
   && rm -rf /var/lib/apt/lists/* \
   && curl -sL https://sentry.io/get-cli/ | bash \
   && curl -fsSL https://bun.sh/install | bash \
   && curl -L "https://dl.k8s.io/release/$(curl -sL https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" -o /usr/local/bin/kubectl \
   && chmod 755 /usr/local/bin/kubectl \
+  && curl -fsSL "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o /tmp/awscliv2.zip \
+  && unzip -q /tmp/awscliv2.zip -d /tmp \
+  && /tmp/aws/install \
+  && rm -rf /tmp/awscliv2.zip /tmp/aws \
   && npm install -g \
     npm@8 \
     node-gyp@latest \
