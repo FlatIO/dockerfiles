@@ -22,6 +22,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     bash \
     git \
     pkg-config \
+    s3cmd \
   # Sentry CLI (sourcemap upload during build)
   && curl -sL https://sentry.io/get-cli/ | bash \
   # Cleanup
