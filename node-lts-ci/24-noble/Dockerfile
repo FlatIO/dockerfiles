@@ -75,6 +75,8 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && rm -rf /tmp/awscliv2.zip /tmp/aws \
   # uv (Python package manager)
   && curl -LsSf https://astral.sh/uv/install.sh | sh \
+  && mv /root/.local/bin/uv /usr/local/bin/uv \
+  && uv python install 3.13 \
   # Cleanup layer
   && rm -rf /var/lib/apt/lists/* \
   # Smoke test
@@ -86,4 +88,5 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && gcloud --version \
   && mongosh --version \
   && aws --version \
-  && uv --version
+  && uv --version \
+  && uv python find 3.13
