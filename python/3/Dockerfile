@@ -9,6 +9,6 @@ RUN userdel ubuntu \
   && apt-get update \
   && apt-get install python3 python3-pip python3-venv curl -y \
   && rm -rf /var/lib/apt/lists/* \
-  && curl -LsSf https://astral.sh/uv/install.sh | sh
+  && curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR=/app/.local/bin sh
 
 ENV PATH="/app/.local/bin/:$PATH" 
