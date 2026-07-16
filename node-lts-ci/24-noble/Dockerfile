@@ -77,6 +77,9 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && curl -LsSf https://astral.sh/uv/install.sh | sh \
   && mv /root/.local/bin/uv /usr/local/bin/uv \
   && uv python install 3.13 \
+  # Linear Release CLI
+  && curl -fsSL https://github.com/linear/linear-release/releases/latest/download/linear-release-linux-x64 -o /usr/local/bin/linear-release \
+  && chmod 755 /usr/local/bin/linear-release \
   # Cleanup layer
   && rm -rf /var/lib/apt/lists/* \
   # Smoke test
@@ -89,4 +92,5 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && mongosh --version \
   && aws --version \
   && uv --version \
-  && uv python find 3.13
+  && uv python find 3.13 \
+  && command -v linear-release
