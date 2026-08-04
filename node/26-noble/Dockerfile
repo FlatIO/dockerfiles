@@ -26,8 +26,8 @@ RUN userdel ubuntu \
   && rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc SHASUMS256.txt \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs \
   # npm/pnpm
-  && npm install -g npm@latest \
-  && npm install -g pnpm@latest \
+  && npm install -g npm@12.0.2 \
+  && npm install -g pnpm@11.18.0 \
   # smoke tests
   && node --version \
   && npm --version \
