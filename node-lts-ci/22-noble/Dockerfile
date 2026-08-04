@@ -51,7 +51,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get install -y google-cloud-cli \
   # NPM Deps
   && npm install -g \
-    npm@latest \
     node-gyp@latest \
     npm-check-updates \
     audit-ci \
