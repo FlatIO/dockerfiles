@@ -12,11 +12,15 @@ RUN userdel ubuntu \
   # Latest 1.4.x release: the releases list is newest-first, keep the first 1.4 tag
   && export BUN_VERSION=$(curl -sL "https://api.github.com/repos/oven-sh/bun/releases?per_page=100" | sed -nE 's/^[[:space:]]*"tag_name":[[:space:]]*"bun-v(1\.4\.[0-9]+)",?$/\1/p' | head -1) \
   && if [ -z "$BUN_VERSION" ]; then echo "Unable to resolve the latest bun 1.4.x release" >&2 ; exit 1 ; fi \
+  && echo "==> Downloading bun v${BUN_VERSION}" \
   && curl -fsSLO --compressed "https://github.com/oven-sh/bun/releases/download/bun-v${BUN_VERSION}/bun-linux-x64.zip" \
   && unzip bun-linux-x64.zip \
   && mv bun-linux-x64/bun /usr/local/bin/ \
   && rm -rf bun-linux-x64.zip bun-linux-x64 \
   && chmod +x /usr/local/bin/bun \
   # smoke tests
-  && bun --version \
-  && case "$(bun --version)" in 1.4.*) ;; *) echo "Expected bun 1.4.x, got $(bun --version)" >&2 ; exit 1 ;; esac
+  && echo "==> Installed bun $(bun --version)" \
+  && if [ "$(bun --version)" != "$BUN_VERSION" ]; then echo "Expected bun ${BUN_VERSION}, got $(bun --version)" >&2 ; exit 1 ; fi \
+  && printf 'const sum: number = 1 + 1;\nif (sum !== 2) throw new Error("bad runtime");\nconsole.log(`==> Smoke test passed on bun ${Bun.version}`);\n' > /tmp/smoke.ts \
+  && bun /tmp/smoke.ts \
+  && rm /tmp/smoke.ts

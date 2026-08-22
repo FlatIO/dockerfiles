@@ -10,10 +10,16 @@ RUN userdel ubuntu \
   && apt-get install curl unzip -y \
   && rm -rf /var/lib/apt/lists/* \
   && export BUN_VERSION=$(curl -sL https://api.github.com/repos/oven-sh/bun/releases/latest | grep '"tag_name":' | sed -E 's/.*"bun-v([^"]+)".*/\1/') \
+  && if [ -z "$BUN_VERSION" ]; then echo "Unable to resolve the latest bun release" >&2 ; exit 1 ; fi \
+  && echo "==> Downloading bun v${BUN_VERSION}" \
   && curl -fsSLO --compressed "https://github.com/oven-sh/bun/releases/download/bun-v${BUN_VERSION}/bun-linux-x64.zip" \
   && unzip bun-linux-x64.zip \
   && mv bun-linux-x64/bun /usr/local/bin/ \
   && rm -rf bun-linux-x64.zip bun-linux-x64 \
   && chmod +x /usr/local/bin/bun \
   # smoke tests
-  && bun --version
+  && echo "==> Installed bun $(bun --version)" \
+  && if [ "$(bun --version)" != "$BUN_VERSION" ]; then echo "Expected bun ${BUN_VERSION}, got $(bun --version)" >&2 ; exit 1 ; fi \
+  && printf 'const sum: number = 1 + 1;\nif (sum !== 2) throw new Error("bad runtime");\nconsole.log(`==> Smoke test passed on bun ${Bun.version}`);\n' > /tmp/smoke.ts \
+  && bun /tmp/smoke.ts \
+  && rm /tmp/smoke.ts
