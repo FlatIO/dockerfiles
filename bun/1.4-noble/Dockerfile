@@ -9,8 +9,9 @@ RUN userdel ubuntu \
   && apt-get update \
   && apt-get install curl unzip -y \
   && rm -rf /var/lib/apt/lists/* \
-  && export BUN_VERSION=$(curl -sL https://api.github.com/repos/oven-sh/bun/releases/latest | grep '"tag_name":' | sed -E 's/.*"bun-v([^"]+)".*/\1/') \
-  && if [ -z "$BUN_VERSION" ]; then echo "Unable to resolve the latest bun release" >&2 ; exit 1 ; fi \
+  # Latest 1.4.x release: the releases list is newest-first, keep the first 1.4 tag
+  && export BUN_VERSION=$(curl -sL "https://api.github.com/repos/oven-sh/bun/releases?per_page=100" | sed -nE 's/^[[:space:]]*"tag_name":[[:space:]]*"bun-v(1\.4\.[0-9]+)",?$/\1/p' | head -1) \
+  && if [ -z "$BUN_VERSION" ]; then echo "Unable to resolve the latest bun 1.4.x release" >&2 ; exit 1 ; fi \
   && echo "==> Downloading bun v${BUN_VERSION}" \
   && curl -fsSLO --compressed "https://github.com/oven-sh/bun/releases/download/bun-v${BUN_VERSION}/bun-linux-x64.zip" \
   && unzip bun-linux-x64.zip \
