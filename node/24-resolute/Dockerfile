@@ -7,7 +7,7 @@ RUN userdel ubuntu \
   && useradd --uid 1000 --gid node --shell /bin/bash --create-home node \
   && export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
-  && apt-get install gpg curl -y \
+  && apt-get install gpg curl libarchive-tools -y \
   && rm -rf /var/lib/apt/lists/* \
   # Import all Node.js release keys from https://github.com/nodejs/release-keys
   && curl -fsSL https://raw.githubusercontent.com/nodejs/release-keys/refs/heads/main/keys.list -o /tmp/node-keys.list \
@@ -22,7 +22,8 @@ RUN userdel ubuntu \
   && curl -fsSLO --compressed "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
   && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \
   && grep " node-v$NODE_VERSION-linux-x64.tar.gz\$" SHASUMS256.txt | sha256sum -c - \
-  && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 --no-same-owner \
+  # GNU tar on 26.04 fails to extract with "Function not implemented", bsdtar works
+  && bsdtar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 --no-same-owner \
   && rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc SHASUMS256.txt \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs \
   # npm/pnpm
