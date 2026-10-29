@@ -23,6 +23,8 @@ RUN userdel ubuntu \
     build-essential \
     pkg-config \
     libssl-dev \
+    # callgrind, which the instruction-count benchmarks run on (gungraun)
+    valgrind \
   && rm -rf /var/lib/apt/lists/* \
   # rustup (checksum-verified installer)
   && curl -fsSLO "https://static.rust-lang.org/rustup/dist/x86_64-unknown-linux-gnu/rustup-init" \
@@ -53,6 +55,7 @@ RUN userdel ubuntu \
   && cargo --version \
   && cargo clippy --version \
   && cargo fmt --version \
+  && valgrind --version \
   && zig version \
   && cargo zigbuild --version \
   && cd /tmp \
