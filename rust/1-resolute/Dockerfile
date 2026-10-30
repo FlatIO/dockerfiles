@@ -59,7 +59,8 @@ RUN userdel ubuntu \
   && cargo fmt --version \
   && valgrind --version \
   && zig version \
-  && cargo zigbuild --version \
+  # cargo-zigbuild forwards --version to its zigbuild subcommand, which rejects it
+  && cargo zigbuild --help > /dev/null \
   && cd /tmp \
   && cargo new --quiet smoke \
   && cargo run --quiet --manifest-path /tmp/smoke/Cargo.toml \
