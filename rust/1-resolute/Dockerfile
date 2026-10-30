@@ -21,6 +21,7 @@ RUN userdel ubuntu \
     curl \
     git \
     build-essential \
+    libarchive-tools \
     pkg-config \
     libssl-dev \
     # callgrind, which the instruction-count benchmarks run on (gungraun)
@@ -39,7 +40,8 @@ RUN userdel ubuntu \
   && curl -fsSL -o zig.tar.xz "https://ziglang.org/download/${ZIG_VERSION}/zig-x86_64-linux-${ZIG_VERSION}.tar.xz" \
   && echo "${ZIG_SHA256}  zig.tar.xz" | sha256sum -c - \
   && mkdir /usr/local/zig \
-  && tar -xJf zig.tar.xz -C /usr/local/zig --strip-components=1 \
+  # GNU tar on 26.04 fails to extract with "Function not implemented" on Docker Hub builders, bsdtar works
+  && bsdtar -xJf zig.tar.xz -C /usr/local/zig --strip-components=1 \
   && rm zig.tar.xz \
   && ln -s /usr/local/zig/zig /usr/local/bin/zig \
   && curl -fsSL -o cargo-zigbuild.tar.xz "https://github.com/rust-cross/cargo-zigbuild/releases/download/v${CARGO_ZIGBUILD_VERSION}/cargo-zigbuild-x86_64-unknown-linux-musl.tar.xz" \
